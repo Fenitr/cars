@@ -35,6 +35,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'auth' => \App\Filters\AuthFilter::class,
+        'cors'     => \App\Filters\CorsFilter::class
     ];
 
     /**
@@ -52,6 +53,7 @@ class Filters extends BaseFilters
      */
     public array $required = [
         'before' => [
+            
             'forcehttps', // Force Global Secure Requests
             'pagecache',  // Web Page Caching
         ],
@@ -76,9 +78,10 @@ class Filters extends BaseFilters
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'cors',
         ],
         'after' => [
-            // 'honeypot',
+            'honeypot',
             // 'secureheaders',
         ],
     ];
